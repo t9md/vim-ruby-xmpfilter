@@ -7,6 +7,7 @@
 
 " GUARD: {{{
 "============================================================
+
 if exists('g:loaded_xmpfilter')
   finish
 endif
@@ -18,10 +19,13 @@ set cpo&vim
 
 " KEYMAP: {{{
 "=================================================================
-vnoremap <silent> <Plug>(xmpfilter) <Esc>:<C-u>call xmpfilter#run(v')<CR>
-nnoremap <silent> <Plug>(xmpfilter)      :<C-u>call xmpfilter#run(n')<CR>
-vnoremap <silent> <Plug>(xmpfilter) <Esc>:<C-u>call xmpfilter#toggle_mark(v')<CR>
-nnoremap <silent> <Plug>(xmpfilter)      :<C-u>call xmpfilter#toggle_mark(n')<CR>
+nnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('n')<CR>
+vnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('v')<CR>
+inoremap <silent> <Plug>(xmpfilter-run)   <C-o>:call xmpfilter#run('i')<CR>
+
+nnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#toggle_mark('n')<CR>
+vnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#toggle_mark('v')<CR>
+inoremap <silent> <Plug>(xmpfilter-mark) <C-o>:call xmpfilter#toggle_mark('i')<CR>
 "}}}
 
 let &cpo = s:old_cpo
