@@ -1,7 +1,7 @@
 "=============================================================================
 " File: xmpfilter.vim
 " Author: t9md <taqumd@gmail.com>
-" WebPage: http://github.com/t9md/vim-ruby-xmpfilter.vim
+" WebPage: http://github.com/t9md/vim-ruby-xmpfilter
 " License: BSD
 " Version: 0.1
 
