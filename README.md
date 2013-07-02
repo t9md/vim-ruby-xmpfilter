@@ -5,7 +5,7 @@ vim-ruby-xmpfilter provide utility function which make easily following
 * insert/delete annotation mark `# =>`.
 * virtual keymap for marking and executing xmpfilter against current bufffer.
 
-xmpfilter is provided as part of [rcodetools](http://www.youtube.com/watch?v=rXeendPlUBA).
+xmpfilter is provided as part of [rcodetools](http://rubygems.org/gems/rcodetools).
 
 Configuration
 ==================================
