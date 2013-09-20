@@ -9,7 +9,7 @@
 "============================================================
 
 if exists('g:loaded_xmpfilter')
-  finish
+  " finish
 endif
 let g:loaded_xmpfilter = 1
 
@@ -17,15 +17,38 @@ let s:old_cpo = &cpo
 set cpo&vim
 "}}}
 
+" VARIABLES: {{{
+"=================================================================
+if !exists('g:xmpfilter_cmd')
+  let g:xmpfilter_cmd = "xmpfilter -a"
+endif
+"}}}
+
 " KEYMAP: {{{
 "=================================================================
-nnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('n')<CR>
-vnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('v')<CR>
-inoremap <silent> <Plug>(xmpfilter-run)   <C-o>:call xmpfilter#run('i')<CR>
-
+" xmpfilter
 nnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#toggle_mark('n')<CR>
 vnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#toggle_mark('v')<CR>
 inoremap <silent> <Plug>(xmpfilter-mark) <C-o>:call xmpfilter#toggle_mark('i')<CR>
+
+nnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('n', '')<CR>
+vnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('v', '')<CR>
+inoremap <silent> <Plug>(xmpfilter-run)   <C-o>:call xmpfilter#run('i', '')<CR>
+
+" seeing_is_believing
+nmap <silent> <Plug>(seeing_is_believing-mark) <Plug>(xmpfilter-mark)
+vmap <silent> <Plug>(seeing_is_believing-mark) <Plug>(xmpfilter-mark)
+imap <silent> <Plug>(seeing_is_believing-mark) <Plug>(xmpfilter-mark)
+
+nnoremap <silent> <Plug>(seeing_is_believing-run_-x)      :call xmpfilter#run('n', '-x')<CR>
+vnoremap <silent> <Plug>(seeing_is_believing-run_-x)      :call xmpfilter#run('v', '-x')<CR>
+inoremap <silent> <Plug>(seeing_is_believing-run_-x) <C-o>:call xmpfilter#run('i', '-x')<CR>
+
+" Only for seeing_is_believing
+nnoremap <silent> <Plug>(seeing_is_believing-run)      :call xmpfilter#run('n', '')<CR>
+vnoremap <silent> <Plug>(seeing_is_believing-run)      :call xmpfilter#run('v', '')<CR>
+inoremap <silent> <Plug>(seeing_is_believing-run) <C-o>:call xmpfilter#run('i', '')<CR>
+
 "}}}
 
 let &cpo = s:old_cpo

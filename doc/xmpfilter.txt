@@ -1,0 +1,115 @@
+xmpfilter.txt Helper for ruby's xmpfilter or seeing_is_believing
+
+Version: 1.0
+Author : t9md <taqumd@gmail.com>
+GitHub : https://github.com/t9md/vim-ruby-xmpfilter
+==============================================================================
+CONTENTS					*xmpfilter-contents*
+
+Introduction				    |xmpfilter-introduction|
+Mapping					    |xmpfilter-mapping|
+Variables				    |xmpfilter-variables|
+Configuration Examples			    |xmpfilter-examples|
+Bug     				    |xmpfilter-bug|
+Changelog				    |xmpfilter-changelog|
+
+==============================================================================
+INTRODUCTION				      	*xmpfilter-introduction*
+
+vim-ruby-xmpfilter provide keymap that helps you use 'xmpfilter' or
+'seeing_is_believing' from Vim.
+
+ * insert/delete annotation mark " # =>".
+ * virtual keymap for marking and executing 'xmpfilter' or 'seeing_is_believing'
+   against current bufffer.
+
+xmpfilter is provided as part of rcodetools.
+ http://rubygems.org/gems/rcodetools
+
+seeing_is_believing
+ https://github.com/JoshCheek/seeing_is_believing
+
+==============================================================================
+MAPPINGS						*xmpfilter-mappings*
+
+Insert " # =>" into end of line or delete " # =>" if it already exist.
+
+  normal <Plug>(xmpfilter-mark)
+  visual <Plug>(xmpfilter-mark)
+  insert <Plug>(xmpfilter-mark)
+
+  normal <Plug>(seeing_is_believing-mark)
+  visual <Plug>(seeing_is_believing-mark)
+  insert <Plug>(seeing_is_believing-mark)
+
+Insert evaluated result at the mark.
+
+  normal <Plug>(xmpfilter-run)
+  visual <Plug>(xmpfilter-run)
+  insert <Plug>(xmpfilter-run)
+
+  normal <Plug>(seeing_is_believing-run_-x)
+  visual <Plug>(seeing_is_believing-run_-x)
+  insert <Plug>(seeing_is_believing-run_-x)
+
+Insert evaluated result with mark.
+Only for "seeing_is_believing"
+
+  normal <Plug>(seeing_is_believing-run)
+  visual <Plug>(seeing_is_believing-run)
+  insert <Plug>(seeing_is_believing-run)
+
+==============================================================================
+COMMANDS						*xmpfilter-commands*
+==============================================================================
+VARIABLES						*xmpfilter-variables*
+
+							  *g:xmpfilter_cmd*
+g:xmpfilter_cmd
+	set filter cmd to insert eval result on mark(" # =>").
+        Default: "xmpfilter -a"
+
+==============================================================================
+CONFIGURATION EXAMPLE                               *xmpfilter-examples*
+
+
+set configuration like bellow in your .vimrc.
+
+* 'xmpfilter' user
+>
+    " Gvim
+    autocmd FileType ruby nmap <buffer> <D-m> <Plug>(xmpfilter-mark)
+    autocmd FileType ruby xmap <buffer> <D-m> <Plug>(xmpfilter-mark)
+    autocmd FileType ruby imap <buffer> <D-m> <Plug>(xmpfilter-mark)
+
+    autocmd FileType ruby nmap <buffer> <D-r> <Plug>(xmpfilter-run)
+    autocmd FileType ruby xmap <buffer> <D-r> <Plug>(xmpfilter-run)
+    autocmd FileType ruby imap <buffer> <D-r> <Plug>(xmpfilter-run)
+
+<
+* 'seeing_is_believing' user
+>
+    let g:xmpfilter_cmd = "seeing_is_believing"
+
+    autocmd FileType ruby nmap <buffer> <D-m> <Plug>(seeing_is_believing-mark)
+    autocmd FileType ruby xmap <buffer> <D-m> <Plug>(seeing_is_believing-mark)
+    autocmd FileType ruby imap <buffer> <D-m> <Plug>(seeing_is_believing-mark)
+
+    " xmpfilter compatible
+    autocmd FileType ruby nmap <buffer> <D-r> <Plug>(seeing_is_believing-run_-x)
+    autocmd FileType ruby xmap <buffer> <D-r> <Plug>(seeing_is_believing-run_-x)
+    autocmd FileType ruby imap <buffer> <D-r> <Plug>(seeing_is_believing-run_-x)
+
+    " auto insert mark at appropriate spot.
+    autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
+    autocmd FileType ruby xmap <buffer> <F5> <Plug>(seeing_is_believing-run)
+    autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing_is_believing-run)
+<
+==============================================================================
+CHANGELOG						*xmpfilter-changelog*
+2013-09-20: v1.0
+        - add keymap for seeing_is_believing
+	- add |g:xmpfilter_cmd| to support seeing_is_believing
+        - create help doc
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:

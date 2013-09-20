@@ -8,11 +8,11 @@ function! s:restore_pos(pos) "{{{
   call setpos('.', a:pos[0])
 endfun "}}}
 
-function! xmpfilter#run(mode) range "{{{
+function! xmpfilter#run(mode, option ) range "{{{
   let range_str = (a:mode == 'v') ? "'<,'>" : '%'
   let pos = s:get_pos()
   set lazyredraw
-  execute ":" . range_str . "!xmpfilter -a"
+  execute ":" . range_str . "!" . g:xmpfilter_cmd . " " . a:option
   call s:restore_pos(pos)
   if a:mode == 'v'
     normal! gv
