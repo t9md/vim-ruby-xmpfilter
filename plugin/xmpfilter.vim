@@ -9,7 +9,7 @@
 "============================================================
 
 if exists('g:loaded_xmpfilter')
-  " finish
+  finish
 endif
 let g:loaded_xmpfilter = 1
 
