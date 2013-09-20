@@ -1,26 +1,29 @@
+function! s:get_pos() "{{{
+  return [getpos("."), getpos("w0")]
+endfun "}}}
+
+function! s:restore_pos(pos) "{{{
+  call setpos('.', a:pos[1])
+  normal! zt
+  call setpos('.', a:pos[0])
+endfun "}}}
+
 function! xmpfilter#run(mode) range "{{{
-  if     a:mode == 'n'
-    let range_str = '%'
-  elseif a:mode == 'v'
-    let range_str = "'<,'>"
-  elseif a:mode == 'i'
-    let range_str = '%'
-  end
-  let cursor_pos = getpos(".")
-  let wintop_pos = getpos('w0')
+  let range_str = (a:mode == 'v') ? "'<,'>" : '%'
+  let pos = s:get_pos()
   set lazyredraw
   execute ":" . range_str . "!xmpfilter -a"
-  call setpos('.', wintop_pos)
-  normal! zt
-  call setpos('.', cursor_pos)
+  call s:restore_pos(pos)
+  if a:mode == 'v'
+    normal! gv
+  endif
   set nolazyredraw
   redraw
 endfun "}}}
 
 function! xmpfilter#toggle_mark(mode) range "{{{
   let mark_str = " # =>"
-  let cursor_pos = getpos(".")
-  let wintop_pos = getpos('w0')
+  let pos = s:get_pos()
   set lazyredraw
   for line in range(a:firstline,a:lastline)
     let org_line = getline(line)
@@ -30,9 +33,10 @@ function! xmpfilter#toggle_mark(mode) range "{{{
           \ : org_line . mark_str
     call setline(line, new_line)
   endfor
-  call setpos('.', wintop_pos)
-  normal zt
-  call setpos('.', cursor_pos)
+  call s:restore_pos(pos)
+  if a:mode == 'v'
+    normal! gv
+  endif
   set nolazyredraw
   redraw
 endfun "}}}
