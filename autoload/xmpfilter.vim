@@ -40,3 +40,4 @@ function! xmpfilter#toggle_mark(mode) range "{{{
   set nolazyredraw
   redraw
 endfun "}}}
+" vim: foldmethod=marker
