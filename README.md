@@ -15,7 +15,7 @@ vim-ruby-xmpfilter provide keymap that helps you use 'xmpfilter' or
 
 Link
  * xmpfilter is provided as part of [rcodetools](http://rubygems.org/gems/rcodetools).
- * [see](https://github.com/JoshCheek/seeing_is_believing)
+ * [seeing_is_believing](https://github.com/JoshCheek/seeing_is_believing)
 
 Configuration
 ==================================
@@ -23,6 +23,7 @@ vim-ruby-xmpfilter doesn't provide any default keymap.
 Set following line in your `.vimrc`
 
 * 'xmpfilter' user
+
     " Gvim
     autocmd FileType ruby nmap <buffer> <D-m> <Plug>(xmpfilter-mark)
     autocmd FileType ruby xmap <buffer> <D-m> <Plug>(xmpfilter-mark)
