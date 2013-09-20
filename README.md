@@ -22,9 +22,8 @@ Configuration
 vim-ruby-xmpfilter doesn't provide any default keymap.
 Set following line in your `.vimrc`
 
-* 'xmpfilter' user
+'xmpfilter' user
 
-    " Gvim
     autocmd FileType ruby nmap <buffer> <D-m> <Plug>(xmpfilter-mark)
     autocmd FileType ruby xmap <buffer> <D-m> <Plug>(xmpfilter-mark)
     autocmd FileType ruby imap <buffer> <D-m> <Plug>(xmpfilter-mark)
@@ -33,7 +32,7 @@ Set following line in your `.vimrc`
     autocmd FileType ruby xmap <buffer> <D-r> <Plug>(xmpfilter-run)
     autocmd FileType ruby imap <buffer> <D-r> <Plug>(xmpfilter-run)
 
-* 'seeing_is_believing' user
+'seeing_is_believing' user
 
     let g:xmpfilter_cmd = "seeing_is_believing"
 
