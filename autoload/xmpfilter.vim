@@ -12,7 +12,7 @@ function! s:winview_save() "{{{
   let s:win_view = winsaveview()
 endfun "}}}
 
-function! s:winview_restore() "{{{{
+function! s:winview_restore() "{{{
   call winrestview(s:win_view)
 endfunction "}}}
 
