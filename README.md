@@ -1,26 +1,16 @@
-What is this?
-==================================
-vim-ruby-xmpfilter provide utility function which make easily following
+Support
+* [rcodetools](http://rubygems.org/gems/rcodetools).
+* [seeing_is_believing](https://github.com/JoshCheek/seeing_is_believing)
 
-* insert/delete annotation mark `# =>`.
-* virtual keymap for marking and executing xmpfilter against current bufffer.
+![Example](https://github.com/t9md/t9md/blob/master/img/vim-ruby-xmpfilter_anime.gif)
 
 
-vim-ruby-xmpfilter provide keymap that helps you use 'xmpfilter' or
-'seeing_is_believing' from Vim.
+### [help](https://github.com/t9md/vim-ruby-xmpfilter/blob/master/doc/xmpfilter.txt)
 
- * insert/delete annotation mark " # =>".
- * virtual keymap for marking and executing 'xmpfilter' or 'seeing_is_believing'
-   against current bufffer.
-
-Link
- * xmpfilter is provided as part of [rcodetools](http://rubygems.org/gems/rcodetools).
- * [seeing_is_believing](https://github.com/JoshCheek/seeing_is_believing)
-
-Configuration
+# .vimrc sample
 ==================================
 vim-ruby-xmpfilter doesn't provide any default keymap.
-Set following line in your `.vimrc`
+See sample configuration below.
 
 'xmpfilter' user
 
