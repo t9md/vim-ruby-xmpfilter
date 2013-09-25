@@ -2,7 +2,7 @@ Support
 * [rcodetools](http://rubygems.org/gems/rcodetools).
 * [seeing_is_believing](https://github.com/JoshCheek/seeing_is_believing)
 
-![Example](https://github.com/t9md/t9md/blob/master/img/vim-ruby-xmpfilter_anime.gif)
+![Example](https://github.com/t9md/t9md/blob/master/img/vim-ruby-xmpfilter_anime.gif?raw=true)
 
 
 ### [help](https://github.com/t9md/vim-ruby-xmpfilter/blob/master/doc/xmpfilter.txt)
