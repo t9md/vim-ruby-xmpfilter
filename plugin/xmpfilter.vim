@@ -44,6 +44,10 @@ nnoremap <silent> <Plug>(seeing_is_believing-run_-x)      :call xmpfilter#run('n
 vnoremap <silent> <Plug>(seeing_is_believing-run_-x)      :call xmpfilter#run('v', '-x')<CR>
 inoremap <silent> <Plug>(seeing_is_believing-run_-x) <C-o>:call xmpfilter#run('i', '-x')<CR>
 
+nnoremap <silent> <Plug>(seeing_is_believing-clean)      :call xmpfilter#run('n', '-Ku --clean')<CR>
+vnoremap <silent> <Plug>(seeing_is_believing-clean)      :call xmpfilter#run('v', '-Ku --clean')<CR>
+inoremap <silent> <Plug>(seeing_is_believing-clean) <C-o>:call xmpfilter#run('i', '-Ku --clean')<CR>
+
 " Only for seeing_is_believing
 nnoremap <silent> <Plug>(seeing_is_believing-run)      :call xmpfilter#run('n', '')<CR>
 vnoremap <silent> <Plug>(seeing_is_believing-run)      :call xmpfilter#run('v', '')<CR>
