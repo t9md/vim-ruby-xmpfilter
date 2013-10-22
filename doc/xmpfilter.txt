@@ -1,6 +1,6 @@
 xmpfilter.txt Helper for ruby's xmpfilter or seeing_is_believing
 
-Version: 1.0
+Version: 1.1
 Author : t9md <taqumd@gmail.com>
 GitHub : https://github.com/t9md/vim-ruby-xmpfilter
 ==============================================================================
@@ -118,6 +118,10 @@ set configuration like bellow in your .vimrc.
 <
 ==============================================================================
 CHANGELOG						*xmpfilter-changelog*
+2013-10-22: v1.1
+        - cleanup
+        - [fix] When <Plug>(xmpfilter-mark) is executed from insert mode
+	  cursor pos change if original cursor was at EOL.
 2013-09-20: v1.0
         - add keymap for seeing_is_believing
 	- add |g:xmpfilter_cmd| to support seeing_is_believing

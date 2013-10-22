@@ -2,11 +2,12 @@
 " File: xmpfilter.vim
 " Author: t9md <taqumd@gmail.com>
 " WebPage: http://github.com/t9md/vim-ruby-xmpfilter
-" License: BSD
-" Version: 0.1
+"=============================================================================
 
 " GUARD: {{{
 "============================================================
+" for dev
+" unlet g:loaded_xmpfilter
 
 if exists('g:loaded_xmpfilter')
   finish
@@ -29,11 +30,11 @@ endif
 " xmpfilter
 nnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#mark('n')<CR>
 vnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#mark('v')<CR>
-inoremap <silent> <Plug>(xmpfilter-mark) <C-o>:call xmpfilter#mark('i')<CR>
+inoremap <silent> <Plug>(xmpfilter-mark) <Esc>:call xmpfilter#mark('i')<CR>a
 
-nnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('n', '')<CR>
-vnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('v', '')<CR>
-inoremap <silent> <Plug>(xmpfilter-run)   <C-o>:call xmpfilter#run('i', '')<CR>
+nnoremap <silent> <Plug>(xmpfilter-run)       :call xmpfilter#run('n', '')<CR>
+vnoremap <silent> <Plug>(xmpfilter-run)       :call xmpfilter#run('v', '')<CR>
+inoremap <silent> <Plug>(xmpfilter-run)  <Esc>:call xmpfilter#run('i', '')<CR>a
 
 " seeing_is_believing
 nmap <silent> <Plug>(seeing_is_believing-mark) <Plug>(xmpfilter-mark)
@@ -42,16 +43,16 @@ imap <silent> <Plug>(seeing_is_believing-mark) <Plug>(xmpfilter-mark)
 
 nnoremap <silent> <Plug>(seeing_is_believing-run_-x)      :call xmpfilter#run('n', '-x')<CR>
 vnoremap <silent> <Plug>(seeing_is_believing-run_-x)      :call xmpfilter#run('v', '-x')<CR>
-inoremap <silent> <Plug>(seeing_is_believing-run_-x) <C-o>:call xmpfilter#run('i', '-x')<CR>
+inoremap <silent> <Plug>(seeing_is_believing-run_-x) <Esc>:call xmpfilter#run('i', '-x')<CR>a
 
 nnoremap <silent> <Plug>(seeing_is_believing-clean)      :call xmpfilter#run('n', '-Ku --clean')<CR>
 vnoremap <silent> <Plug>(seeing_is_believing-clean)      :call xmpfilter#run('v', '-Ku --clean')<CR>
-inoremap <silent> <Plug>(seeing_is_believing-clean) <C-o>:call xmpfilter#run('i', '-Ku --clean')<CR>
+inoremap <silent> <Plug>(seeing_is_believing-clean) <Esc>:call xmpfilter#run('i', '-Ku --clean')<CR>a
 
 " Only for seeing_is_believing
 nnoremap <silent> <Plug>(seeing_is_believing-run)      :call xmpfilter#run('n', '')<CR>
 vnoremap <silent> <Plug>(seeing_is_believing-run)      :call xmpfilter#run('v', '')<CR>
-inoremap <silent> <Plug>(seeing_is_believing-run) <C-o>:call xmpfilter#run('i', '')<CR>
+inoremap <silent> <Plug>(seeing_is_believing-run) <Esc>:call xmpfilter#run('i', '')<CR>a
 
 "}}}
 
