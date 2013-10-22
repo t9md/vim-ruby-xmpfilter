@@ -27,9 +27,9 @@ endif
 " KEYMAP: {{{
 "=================================================================
 " xmpfilter
-nnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#toggle_mark('n')<CR>
-vnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#toggle_mark('v')<CR>
-inoremap <silent> <Plug>(xmpfilter-mark) <C-o>:call xmpfilter#toggle_mark('i')<CR>
+nnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#mark('n')<CR>
+vnoremap <silent> <Plug>(xmpfilter-mark)      :call xmpfilter#mark('v')<CR>
+inoremap <silent> <Plug>(xmpfilter-mark) <C-o>:call xmpfilter#mark('i')<CR>
 
 nnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('n', '')<CR>
 vnoremap <silent> <Plug>(xmpfilter-run)        :call xmpfilter#run('v', '')<CR>

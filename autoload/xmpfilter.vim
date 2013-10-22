@@ -1,51 +1,54 @@
-" function! s:get_pos() "{{{
-  " return [getpos("."), getpos("w0")]
-" endfun "}}}
+" Object:
+"=========================
+let s:mark = " # =>"
+let s:xmpfilter = {}
 
-" function! s:restore_pos(pos) "{{{
-  " call setpos('.', a:pos[1])
-  " normal! zt
-  " call setpos('.', a:pos[0])
-" endfun "}}}
-
-function! s:winview_save() "{{{
-  let s:win_view = winsaveview()
-endfun "}}}
-
-function! s:winview_restore() "{{{
-  call winrestview(s:win_view)
+function! s:xmpfilter.init(mode) "{{{
+  let self._mode       = a:mode
+  let self._winview    = winsaveview()
+  let self._lazyredraw = &lazyredraw
+  set lazyredraw
 endfunction "}}}
 
-function! xmpfilter#run(mode, option ) range "{{{
-  let range_str = (a:mode == 'v') ? "'<,'>" : '%'
-  call s:winview_save()
-  set lazyredraw
-  execute ":" . range_str . "!" . g:xmpfilter_cmd . " " . a:option
-  call s:winview_restore()
-  if a:mode == 'v'
+function! s:xmpfilter.finish() "{{{
+  call winrestview(self._winview)
+  if self._mode == 'v'
     normal! gv
   endif
-  set nolazyredraw
+  let &lazyredraw = self._lazyredraw
   redraw
+endfunction "}}}
+
+function! s:xmpfilter.run(mode, option,first_line, last_line) "{{{
+  call self.init(a:mode)
+  let range = (self._mode == 'v')
+        \ ? join([a:first_line, a:last_line], ",")
+        \ : '%'
+  let cmd = range . "!" . g:xmpfilter_cmd . " " . a:option
+  execute cmd
+  call self.finish()
+endfunction "}}}
+
+function! s:xmpfilter.mark(mode, first_line, last_line) "{{{
+  call self.init(a:mode)
+  for line in range(a:first_line,a:last_line)
+    let line_org = getline(line)
+    let marked   = strridx(line_org, s:mark)
+    let line_new = (marked ==# -1)
+          \ ? line_org . s:mark
+          \ : strpart(line_org, 0, marked)
+    call setline(line, line_new)
+  endfor
+  call self.finish()
+endfunction "}}}
+
+" PublicInterface:
+"=========================
+function! xmpfilter#run(mode, option ) range "{{{
+  call s:xmpfilter.run(a:mode, a:option, a:firstline, a:lastline)
 endfun "}}}
 
-function! xmpfilter#toggle_mark(mode) range "{{{
-  let mark_str = " # =>"
-  call s:winview_save()
-  set lazyredraw
-  for line in range(a:firstline,a:lastline)
-    let org_line = getline(line)
-    let marked = strridx(org_line, mark_str)
-    let new_line = marked != -1
-          \ ? strpart(org_line, 0, marked)
-          \ : org_line . mark_str
-    call setline(line, new_line)
-  endfor
-  call s:winview_save()
-  if a:mode == 'v'
-    normal! gv
-  endif
-  set nolazyredraw
-  redraw
+function! xmpfilter#mark(mode) range "{{{
+  call s:xmpfilter.mark(a:mode, a:firstline, a:lastline)
 endfun "}}}
 " vim: foldmethod=marker
