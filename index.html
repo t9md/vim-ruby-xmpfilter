@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vim-ruby-xmpfilter by t9md</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Vim-ruby-xmpfilter</h1>
+        <p>helper for ruby's xmpfilter or seeing_is_believing</p>
+
+        <p class="view"><a href="https://github.com/t9md/vim-ruby-xmpfilter">View the Project on GitHub <small>t9md/vim-ruby-xmpfilter</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/t9md/vim-ruby-xmpfilter/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/t9md/vim-ruby-xmpfilter/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/t9md/vim-ruby-xmpfilter">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Support</p>
+
+<ul>
+<li>
+<a href="http://rubygems.org/gems/rcodetools">rcodetools</a>.</li>
+<li><a href="https://github.com/JoshCheek/seeing_is_believing">seeing_is_believing</a></li>
+</ul><p><img src="https://github.com/t9md/t9md/blob/master/img/vim-ruby-xmpfilter_anime.gif?raw=true" alt="Example"></p>
+
+<h3>
+<a name="help" class="anchor" href="#help"><span class="octicon octicon-link"></span></a><a href="https://github.com/t9md/vim-ruby-xmpfilter/blob/master/doc/xmpfilter.txt">help</a>
+</h3>
+
+<h1>
+<a name="vimrc-sample" class="anchor" href="#vimrc-sample"><span class="octicon octicon-link"></span></a>.vimrc sample</h1>
+
+<h1></h1>
+
+<p>vim-ruby-xmpfilter doesn't provide any default keymap.
+See sample configuration below.</p>
+
+<p>'xmpfilter' user</p>
+
+<pre><code>autocmd FileType ruby nmap &lt;buffer&gt; &lt;D-m&gt; &lt;Plug&gt;(xmpfilter-mark)
+autocmd FileType ruby xmap &lt;buffer&gt; &lt;D-m&gt; &lt;Plug&gt;(xmpfilter-mark)
+autocmd FileType ruby imap &lt;buffer&gt; &lt;D-m&gt; &lt;Plug&gt;(xmpfilter-mark)
+
+autocmd FileType ruby nmap &lt;buffer&gt; &lt;D-r&gt; &lt;Plug&gt;(xmpfilter-run)
+autocmd FileType ruby xmap &lt;buffer&gt; &lt;D-r&gt; &lt;Plug&gt;(xmpfilter-run)
+autocmd FileType ruby imap &lt;buffer&gt; &lt;D-r&gt; &lt;Plug&gt;(xmpfilter-run)
+</code></pre>
+
+<p>'seeing_is_believing' user</p>
+
+<pre><code>let g:xmpfilter_cmd = "seeing_is_believing"
+
+autocmd FileType ruby nmap &lt;buffer&gt; &lt;D-m&gt; &lt;Plug&gt;(seeing_is_believing-mark)
+autocmd FileType ruby xmap &lt;buffer&gt; &lt;D-m&gt; &lt;Plug&gt;(seeing_is_believing-mark)
+autocmd FileType ruby imap &lt;buffer&gt; &lt;D-m&gt; &lt;Plug&gt;(seeing_is_believing-mark)
+
+autocmd FileType ruby nmap &lt;buffer&gt; &lt;D-c&gt; &lt;Plug&gt;(seeing_is_believing-clean)
+autocmd FileType ruby xmap &lt;buffer&gt; &lt;D-c&gt; &lt;Plug&gt;(seeing_is_believing-clean)
+autocmd FileType ruby imap &lt;buffer&gt; &lt;D-c&gt; &lt;Plug&gt;(seeing_is_believing-clean)
+
+" xmpfilter compatible
+autocmd FileType ruby nmap &lt;buffer&gt; &lt;D-r&gt; &lt;Plug&gt;(seeing_is_believing-run_-x)
+autocmd FileType ruby xmap &lt;buffer&gt; &lt;D-r&gt; &lt;Plug&gt;(seeing_is_believing-run_-x)
+autocmd FileType ruby imap &lt;buffer&gt; &lt;D-r&gt; &lt;Plug&gt;(seeing_is_believing-run_-x)
+
+" auto insert mark at appropriate spot.
+autocmd FileType ruby nmap &lt;buffer&gt; &lt;F5&gt; &lt;Plug&gt;(seeing_is_believing-run)
+autocmd FileType ruby xmap &lt;buffer&gt; &lt;F5&gt; &lt;Plug&gt;(seeing_is_believing-run)
+autocmd FileType ruby imap &lt;buffer&gt; &lt;F5&gt; &lt;Plug&gt;(seeing_is_believing-run)
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/t9md">t9md</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
